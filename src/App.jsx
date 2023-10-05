@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css';
 import axios from "axios";
 
-const baseURL = "http://localhost:7071/api/test";
+const baseURL = "https://mio-back-test.azurewebsites.net/api/test";
 
 function App() {
   const [text, setText] = useState('-');
