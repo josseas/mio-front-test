@@ -1,10 +1,19 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import axios from "axios";
+
+const baseURL = "http://localhost:7071/api/test";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text, setText] = useState('-');
+
+  const onClick = () => {
+      axios.get(baseURL).then((response) => {
+        setText(response.data);
+      });
+  }
 
   return (
     <>
@@ -18,9 +27,12 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => onClick()}>
+          Get Test
         </button>
+
+        <h1>{text}</h1>
+
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
