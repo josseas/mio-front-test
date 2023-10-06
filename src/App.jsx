@@ -4,14 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css';
 import axios from "axios";
 
-const baseURL = "https://mio-back-test.azurewebsites.net/api/test";
+const baseURL2 = "https://mio-back-test.azurewebsites.net/api/test";
+const baseURL = "https://api7miodev.tasa.com.pe/api/get-all-users-plants";
 
 function App() {
   const [text, setText] = useState('-');
 
   const onClick = () => {
       axios.get(baseURL).then((response) => {
-        setText(response.data);
+        console.log(response.data);
+        setText(response.data.length);
       });
   }
 
